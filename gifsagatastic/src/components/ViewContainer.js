@@ -17,7 +17,6 @@ class ViewContainer extends Component {
 
   onValueChange = (event) => {
     let searchInput = event.target.value;
-    console.log(searchInput);
     this.props.dispatch(updateInputValue(searchInput));
   };
 

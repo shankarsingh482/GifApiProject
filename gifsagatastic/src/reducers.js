@@ -6,25 +6,33 @@ const menuReducer = (state = {
 	}, action) => {
 	switch(action.type){
 		case "SEARCHING":
-			console.log(action.type);
-			console.log(action.payload);
 			return{
 				...state,
 				isFetching: true,
 			}
+			break;
 		case "CLEARING":
 			return {
 				...state,
 				isFetching: false,
-				input: ""
+				input: "",
+				results: []
 			}
+			break;
 		case "INPUT":
-			console.log(action.payload)
 			return {
 				...state,
 				isFetching: false,
 				input: action.payload
 			}
+			break;
+		case "RECEIVEDATA":
+			return {
+				...state,
+				isFetching: false,
+				results: action.results
+			}
+			break;
 		default:
 			return state;
 	}

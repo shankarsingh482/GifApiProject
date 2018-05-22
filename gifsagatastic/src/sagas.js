@@ -1,21 +1,26 @@
-import { put, takeEvery, all, call } from 'redux-saga/effects'
+import { put, takeEvery, all, call, select } from 'redux-saga/effects';
+import getGiphy from './api';
 
 // Our worker Saga: will perform the async task
 function* takeSearchInput(action) {
-  yield put({ type: 'SEARCHING'})
+	let searchValue = yield select(state => state.input);
+  yield put({ type: 'SEARCHING'});
+  let json = yield call(getGiphy, searchValue);
+  console.log(json.data.data);
+  yield put({type: 'RECEIVEDATA', results: json.data.data});
 }
 
 // Our watcher Saga: spawn a new Async task on each SEARCH
 function* watchSearchInput(action) {
-  yield takeEvery('SEARCH', takeSearchInput)
+  yield takeEvery('SEARCH', takeSearchInput);
 }
 
 function* clearSearchInput(action) {
-	yield put({type: "CLEARING"})
+	yield put({type: "CLEARING"});
 }
 
 function* watchClearSearchInput(action){
-	yield takeEvery("CLEAR", clearSearchInput)
+	yield takeEvery("CLEAR", clearSearchInput);
 }
 
 // single entry point to start all Sagas at once
