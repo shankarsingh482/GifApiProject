@@ -11,10 +11,6 @@ class ViewContainer extends Component {
     super(props);
   }
 
-  componentWillUpdate(nextprops, nextstate){
-  	console.log(nextprops)
-  }
-
   onValueChange = (event) => {
     let searchInput = event.target.value;
     this.props.dispatch(updateInputValue(searchInput));
@@ -27,10 +23,10 @@ class ViewContainer extends Component {
       		onSearch = {() => this.props.action('SEARCH')}
       		onClear = {() => this.props.action('CLEAR')}
       		onChange = {this.onValueChange}
-      		inputValue = {this.props.menuReducer.input}
+      		inputValue = {this.props.inputState}
       	/>
       	<ResultsContainer
-      		value = {this.props.menuReducer}
+      		value = {this.props.resultsState}
       	/>
     	</div>
     );
@@ -44,7 +40,8 @@ const mapDispatchToProps = dispatch => {
 
 function mapStateToProps(state){
   return {
-    menuReducer: state.menuReducer
+    inputState: state.menuReducer.input,
+    resultsState: state.menuReducer.results
   };
 }
 

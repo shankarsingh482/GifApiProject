@@ -1,7 +1,15 @@
 import React from "react";
-import {  Container, Header  } from 'semantic-ui-react'
+import {  Container, Header, Grid, Image  } from 'semantic-ui-react'
  
 const ResultsContainer = props => {
+	let pics;
+ 	if(props.value){
+ 		pics = props.value.map(function(val, index){
+	 		return <Image src={val.images.preview_gif.url} key = {index}/>
+ 	})} else {
+ 			pics = [<div></div>]
+ 		}
+
 	return(
     <Container>
     	<Header as="h1"
@@ -10,10 +18,13 @@ const ResultsContainer = props => {
     		Results
   		</Header>
   		<div>
-  		{Object.keys(props.value).map(function(key) {
-  			if(props.value[key]){
-	    		return <div key={key}>Key: {key}, Value: {props.value[key].toString()}</div>;}
-			})}		
+				<Grid 
+					columns={3}
+				 >
+				 {pics.map(function(pic, index){
+	 					return <Grid.Column key = {index}>{pic}</Grid.Column>
+					})}
+				</Grid>
 			</div>
     </Container>
   );

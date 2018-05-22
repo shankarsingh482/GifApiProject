@@ -3,10 +3,9 @@ import getGiphy from './api';
 
 // Our worker Saga: will perform the async task
 function* takeSearchInput(action) {
-	let searchValue = yield select(state => state.input);
+	let searchValue = yield select(state => state.menuReducer.input);
   yield put({ type: 'SEARCHING'});
   let json = yield call(getGiphy, searchValue);
-  console.log(json.data.data);
   yield put({type: 'RECEIVEDATA', results: json.data.data});
 }
 
