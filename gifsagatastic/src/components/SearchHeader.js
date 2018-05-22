@@ -19,7 +19,7 @@ const SearchHeader = props => {
 		      		icon='search' 
 		      		placeholder='Search...' 
               value={props.inputValue}
-              onChange={e => props.onValueChange(e)}
+              onChange={e => props.onChange(e)}
 	      		/>
 	      	</Menu.Item>
 	      	<Menu.Item>

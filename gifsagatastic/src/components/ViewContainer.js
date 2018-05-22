@@ -3,7 +3,7 @@ import SearchHeader from "./SearchHeader";
 import ResultsContainer from "./ResultsContainer";
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-
+import {updateInputValue} from "../actions";
 
 
 class ViewContainer extends Component {
@@ -17,7 +17,8 @@ class ViewContainer extends Component {
 
   onValueChange = (event) => {
     let searchInput = event.target.value;
-    this.setState({searchQuery: searchInput});
+    console.log(searchInput);
+    this.props.dispatch(updateInputValue(searchInput));
   };
 
   render() {
@@ -26,16 +27,20 @@ class ViewContainer extends Component {
       	<SearchHeader
       		onSearch = {() => this.props.action('SEARCH')}
       		onClear = {() => this.props.action('CLEAR')}
-      		onChange = {onValueChange}
+      		onChange = {this.onValueChange}
       		inputValue = {this.props.menuReducer.input}
       	/>
       	<ResultsContainer
-      		store = {this.props.store}
       		value = {this.props.menuReducer}
       	/>
     	</div>
     );
   }
+}
+
+const mapDispatchToProps = dispatch => {
+  let actions = bindActionCreators({ updateInputValue });
+  return { ...actions, dispatch };
 }
 
 function mapStateToProps(state){
@@ -44,4 +49,4 @@ function mapStateToProps(state){
   };
 }
 
-export default connect(mapStateToProps)(ViewContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(ViewContainer);

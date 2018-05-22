@@ -11,7 +11,6 @@ const menuReducer = (state = {
 			return{
 				...state,
 				isFetching: true,
-				input: action.payload
 			}
 		case "CLEARING":
 			return {
@@ -20,11 +19,11 @@ const menuReducer = (state = {
 				input: ""
 			}
 		case "INPUT":
-			console.log(action.value)
+			console.log(action.payload)
 			return {
 				...state,
 				isFetching: false,
-				input: action.value
+				input: action.payload
 			}
 		default:
 			return state;

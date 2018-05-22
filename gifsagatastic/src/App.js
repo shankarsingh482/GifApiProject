@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ViewContainer from "./components/ViewContainer";
-
+import {connect} from "react-redux";
+import * as actions from "./actions";
+import { bindActionCreators } from 'redux'
 
 
 class App extends Component {
@@ -13,7 +15,6 @@ class App extends Component {
     return (
    		<div>
       	<ViewContainer
-      		store = {this.props.store}
       		action = {this.props.action}
       	/>
     	</div>
@@ -21,4 +22,10 @@ class App extends Component {
   }
 }
 
-export default App;
+//export default App;
+
+const mapStateToProps = state => {
+	return{
+	};
+};
+export default connect(mapStateToProps, actions)(App);

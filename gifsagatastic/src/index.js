@@ -7,19 +7,19 @@ import {createStore, applyMiddleware} from "redux";
 import createSagaMiddleware from 'redux-saga';
 import rootReducer from "./reducers";
 import rootSaga from './sagas';
+import {Provider} from "react-redux";
 
 const sagaMiddleware = createSagaMiddleware();
-const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
+const store = createStore(rootReducer, {}, applyMiddleware(sagaMiddleware));
 
 sagaMiddleware.run(rootSaga);
 
 const action = type => store.dispatch({type});
 
 ReactDOM.render(
-  <App 
-  	store={store}
-  	action={action}
-  />
+  <Provider store={store}>              
+    <App action={action}/>
+  </Provider>
   , document.getElementById('root'));
 
 registerServiceWorker();
