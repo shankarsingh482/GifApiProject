@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
-import ViewContainer from "./components/ViewContainer";
+import './styles/bass.css';
+import ViewContainer from './container/ViewContainer';
 import {connect} from "react-redux";
-import * as actions from "./actions";
-import { bindActionCreators } from 'redux'
+import * as actions from "./actions/index";
 
 
 class App extends Component {
-
-  constructor(props){
-    super(props);
-  }
 
   render() {
     return (

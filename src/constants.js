@@ -1,0 +1,6 @@
+export const SEARCHING = "SEARCHING"
+export const CLEARING = "CLEARING"
+export const INPUT = "INPUT"
+export const RECEIVEDATA = "RECEIVEDATA"
+export const SEARCH = "SEARCH"
+export const CLEAR = "CLEAR"

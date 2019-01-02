@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import SearchHeader from "./SearchHeader";
+import SearchHeader from "../components/SearchHeader";
 import ResultsContainer from "./ResultsContainer";
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {updateInputValue} from "../actions";
+import {updateInputValue} from "../actions/index";
+import { getInput ,getOutput} from './inputStateSelector';
 
 
 class ViewContainer extends Component {
-  constructor(props){
-    super(props);
-  }
+
 
   onValueChange = (event) => {
     let searchInput = event.target.value;
@@ -40,8 +39,8 @@ const mapDispatchToProps = dispatch => {
 
 function mapStateToProps(state){
   return {
-    inputState: state.menuReducer.input,
-    resultsState: state.menuReducer.results
+    inputState: getInput(state),
+    resultsState: getOutput(state)
   };
 }
 
