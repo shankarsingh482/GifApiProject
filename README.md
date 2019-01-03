@@ -14,3 +14,8 @@
 * Redux Saga
 * Testing using Enzyme and , Mocha and Chai 
 
+# Command To Run Project 
+* git clone 
+* cd "GifApiProject"
+* npm install
+* npm start
