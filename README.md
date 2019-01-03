@@ -15,7 +15,7 @@
 * Testing using Enzyme and , Mocha and Chai 
 
 # Command To Run Project 
-* git clone 
+* git clone "https://github.com/shankarsingh482/GifApiProject.git"
 * cd "GifApiProject"
 * npm install
 * npm start
