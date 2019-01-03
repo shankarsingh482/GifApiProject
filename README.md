@@ -1,8 +1,8 @@
 # This project generate the GIf Images as enter by the user in Search.
 
 #  Screenshot Of Project 
-![alt text](https://ibb.co/yy9R7Nb)
-![alt text](https://ibb.co/FkQrWSg)
+![Before Search](https://ibb.co/FkQrWSg)
+![After Search](https://ibb.co/yy9R7Nb)
 
 
 
