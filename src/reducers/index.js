@@ -5,10 +5,13 @@ import {
 	RECEIVEDATA,
 	INPUT,
   } from '../constants'
-const menuReducer = (state = { 
+
+const initialState=
+{
 	isFetching: false, 
-	input: ""	
-	}, action) => {
+	input: ""
+}
+const menuReducer = (state = initialState, action) => {
 	switch(action.type){
 		case SEARCHING:
 			return{

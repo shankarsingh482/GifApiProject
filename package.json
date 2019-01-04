@@ -6,7 +6,7 @@
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
     "basscss": "^8.0.10",
-    "chai": "^4.2.0",
+    "immutable": "^4.0.0-rc.12",
     "mocha": "^5.2.0",
     "prop-types": "^15.6.2",
     "react": "^16.3.2",
@@ -33,6 +33,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "chai": "^4.2.0",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1"
   }

@@ -11,7 +11,6 @@ import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
 
 
-//const mockFn =()=>('hey')
 
 //Test Cases For button.
 describe('Button',()=>
@@ -27,19 +26,21 @@ describe('Button',()=>
         );
         expect(tree).toMatchSnapshot();
     });
-    it('Button is clickable in Search Header Component',()=>
+    /*
+    it('should execute the onClick function on click ',()=>
     {
-        const onButtonClick = sinon.spy();
-
+        const spy = sinon.spy();
+        const stub = sinon.stub();
         const tree = shallow(
-            <Button name='button test' onClick ={onButtonClick}/>
+            <Button name='button test' onClick ={stub}/>
         )
         // const instance = tree.instance();
         // const goSpy = sinon.spy(instance,'moc');
         // instance.forceUpdate();
             //  sinon.assert.calledOnce(goSpy);
          tree.simulate('click');
-         expect(onButtonClick).toBeCalled();
+         expect(spy.calledOnce).to.be.equal(true);
        
     })
+*/
 });

@@ -12,7 +12,7 @@ import { createLogger } from 'redux-logger';
 
 import './App.css';
 import './styles/bass.css';
-
+import './animation/animate.css'
 /* MiddleWare and Loggers are used */
 let middleware;
 
